@@ -103,9 +103,9 @@ export default function Home() {
               Four end-to-end engineering projects spanning edge AI, decentralized systems, autonomous flight, and custom processor design on FPGA.
             </p>
           </ScrollReveal>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-6 items-stretch">
             {projects.map((project) => (
-              <ScrollReveal key={project.slug}>
+              <ScrollReveal key={project.slug} className="h-full">
                 <ProjectCard project={project} />
               </ScrollReveal>
             ))}
