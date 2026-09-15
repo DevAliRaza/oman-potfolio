@@ -18,13 +18,13 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#0A0A0F]/80 backdrop-blur-md border-b border-border">
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="text-lg font-bold text-white hover:text-blue-400 transition-colors">
+        <Link href="/" className="font-[family-name:var(--font-display)] text-lg font-bold text-text hover:text-amber transition-colors">
           OKB
         </Link>
         <button
-          className="md:hidden text-slate-300 hover:text-white"
+          className="md:hidden text-text-secondary hover:text-text"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
@@ -39,7 +39,7 @@ export default function Header() {
         <ul className="hidden md:flex items-center gap-8">
           {!isHome && (
             <li>
-              <Link href="/" className="text-sm text-slate-400 hover:text-white transition-colors">
+              <Link href="/" className="text-sm text-text-secondary hover:text-text transition-colors">
                 Home
               </Link>
             </li>
@@ -48,7 +48,7 @@ export default function Header() {
             <li key={link.label}>
               <Link
                 href={link.href}
-                className="text-sm text-slate-400 hover:text-white transition-colors"
+                className="text-sm text-text-secondary hover:text-text transition-colors"
               >
                 {link.label}
               </Link>
@@ -57,18 +57,18 @@ export default function Header() {
         </ul>
       </nav>
       {menuOpen && (
-        <div className="md:hidden bg-slate-900/95 border-b border-slate-800 px-6 pb-4">
+        <div className="md:hidden bg-[#0A0A0F]/95 border-b border-border px-6 pb-4">
           <ul className="flex flex-col gap-3">
             {!isHome && (
               <li>
-                <Link href="/" className="text-sm text-slate-400 hover:text-white" onClick={() => setMenuOpen(false)}>
+                <Link href="/" className="text-sm text-text-secondary hover:text-text" onClick={() => setMenuOpen(false)}>
                   Home
                 </Link>
               </li>
             )}
             {navLinks.map((link) => (
               <li key={link.label}>
-                <Link href={link.href} className="text-sm text-slate-400 hover:text-white" onClick={() => setMenuOpen(false)}>
+                <Link href={link.href} className="text-sm text-text-secondary hover:text-text" onClick={() => setMenuOpen(false)}>
                   {link.label}
                 </Link>
               </li>
