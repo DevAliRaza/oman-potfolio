@@ -3,6 +3,7 @@ import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ThemeProvider from "@/components/ThemeProvider";
 
 const spaceGrotesk = Space_Grotesk({ variable: "--font-display", subsets: ["latin"] });
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
@@ -15,11 +16,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrains.variable} scroll-smooth`}>
-      <body className="bg-[#0A0A0F] text-[#E8E6E3] font-sans antialiased">
-        <Header />
-        <main className="pt-16">{children}</main>
-        <Footer />
+    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrains.variable} scroll-smooth dark`}>
+      <body className="font-sans antialiased">
+        <ThemeProvider>
+          <Header />
+          <main className="pt-16">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

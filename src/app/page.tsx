@@ -10,11 +10,11 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="min-h-[80vh] flex items-center relative overflow-hidden py-16 md:py-0">
+      <section className="min-h-[70vh] md:min-h-[80vh] flex items-center relative overflow-hidden py-10 md:py-0">
         <CircuitTrace />
         <div className="relative z-10 max-w-6xl mx-auto px-6 w-full">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-10 md:gap-16">
-            <div className="max-w-xl">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 md:gap-16">
+            <div className="flex flex-col items-center md:items-start text-center md:text-left max-w-xl order-2 md:order-1">
               <p className="text-amber font-mono text-xs sm:text-sm mb-4 tracking-[0.2em]">EMBEDDED SYSTEMS ENGINEER</p>
               <h1 className="font-[family-name:var(--font-display)] text-4xl sm:text-5xl md:text-7xl font-bold text-text leading-[1.05] mb-6 tracking-tight">
                 Oman Khalid<br />Butt
@@ -23,7 +23,7 @@ export default function Home() {
                 Edge AI medical devices. Blockchain energy networks. Autonomous drones. Custom processors on FPGA. I build systems that compute at the hardware boundary.
               </p>
               <div className="flex items-center gap-6">
-                <a href="#projects" className="px-6 sm:px-7 py-3 bg-amber hover:bg-amber-light text-[#0A0A0F] rounded-lg font-medium transition-colors text-sm">
+                <a href="#projects" className="px-6 sm:px-7 py-3 bg-amber hover:bg-amber-light text-[#1A1A1F] rounded-lg font-medium transition-colors text-sm">
                   View Projects
                 </a>
                 <a href="#contact" className="text-sm text-text-secondary hover:text-text transition-colors">
@@ -31,13 +31,13 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            <div className="hidden md:block shrink-0">
-              <div className="w-56 h-56 lg:w-64 lg:h-64 rounded-2xl overflow-hidden border-2 border-border-light relative">
+            <div className="shrink-0 order-1 md:order-2 flex justify-center">
+              <div className="w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-2 border-amber/30 relative">
                 <Image
-                  src="/images/oman-profile.jpeg"
+                  src="/images/oman-hero.jpg"
                   alt="Oman Khalid Butt"
                   fill
-                  className="object-cover object-top"
+                  className="object-cover scale-[1.15] object-[center_45%]"
                   priority
                 />
               </div>
@@ -50,16 +50,7 @@ export default function Home() {
       <section id="about" className="py-16 md:py-24">
         <div className="max-w-4xl mx-auto px-6">
           <ScrollReveal>
-            <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
-              <div className="md:hidden w-32 h-32 rounded-xl overflow-hidden border border-border-light relative shrink-0">
-                <Image
-                  src="/images/oman-profile.jpeg"
-                  alt="Oman Khalid Butt"
-                  fill
-                  className="object-cover object-top"
-                />
-              </div>
-              <div>
+            <div>
                 <h2 className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl font-bold text-text mb-6 sm:mb-8 tracking-tight">Background</h2>
                 <div className="space-y-5 text-text-secondary leading-relaxed text-sm sm:text-base">
                   <p>
@@ -70,7 +61,6 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-            </div>
           </ScrollReveal>
         </div>
       </section>
@@ -85,7 +75,7 @@ export default function Home() {
             <div className="absolute left-4 md:left-6 top-0 bottom-0 w-px bg-border-light" />
             {experiences.map((exp, i) => (
               <ScrollReveal key={i} className="relative pl-12 md:pl-16 pb-10 md:pb-12 last:pb-0">
-                <div className="absolute left-2.5 md:left-4.5 top-1.5 w-3 h-3 rounded-full bg-amber border-2 border-[#0A0A0F] z-10" />
+                <div className="absolute left-2.5 md:left-4.5 top-1.5 w-3 h-3 rounded-full bg-amber border-2 border-bg z-10" />
                 <div className="bg-surface rounded-xl p-4 sm:p-6 border border-border">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
                     <h3 className="text-base sm:text-lg font-bold text-text">{exp.company}</h3>
@@ -182,7 +172,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row items-start gap-4 mb-8 sm:mb-10">
               <a
                 href="mailto:omanbutt44@gmail.com"
-                className="px-6 sm:px-7 py-3 bg-amber hover:bg-amber-light text-[#0A0A0F] rounded-lg font-medium transition-colors text-sm w-full sm:w-auto text-center"
+                className="px-6 sm:px-7 py-3 bg-amber hover:bg-amber-light text-[#1A1A1F] rounded-lg font-medium transition-colors text-sm w-full sm:w-auto text-center"
               >
                 omanbutt44@gmail.com
               </a>
