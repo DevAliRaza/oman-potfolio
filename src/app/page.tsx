@@ -1,9 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import ProjectCard from "@/components/ProjectCard";
 import { projects } from "@/data/projects";
 import { experiences } from "@/data/experience";
-import { skills } from "@/data/skills";
+import { skillCategories } from "@/data/skills";
 import CircuitTrace from "@/components/CircuitTrace";
 
 export default function Home() {
@@ -51,16 +52,16 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-6">
           <ScrollReveal>
             <div>
-                <h2 className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl font-bold text-text mb-6 sm:mb-8 tracking-tight">Background</h2>
-                <div className="space-y-5 text-text-secondary leading-relaxed text-sm sm:text-base">
-                  <p>
-                    Electrical engineer from UET Lahore with hands-on experience spanning embedded systems, edge AI, autonomous robotics, and blockchain-integrated IoT. Currently a Research Assistant at LUMS, engineering distributed P2P energy trading prototypes on Raspberry Pi clusters with Quorum blockchain.
-                  </p>
-                  <p>
-                    Previously built custom firmware on STM32 microcontrollers at Smart Computing and deployed edge ML models at Robotics Stellar Skills. I design systems that work at the intersection of hardware, software, and real-world constraints.
-                  </p>
-                </div>
+              <h2 className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl font-bold text-text mb-6 sm:mb-8 tracking-tight">Background</h2>
+              <div className="space-y-5 text-text-secondary leading-relaxed text-sm sm:text-base">
+                <p>
+                  Electrical engineer from UET Lahore with hands-on experience spanning embedded systems, edge AI, autonomous robotics, and blockchain-integrated IoT. Currently a Research Assistant at LUMS, engineering distributed P2P energy trading prototypes on Raspberry Pi clusters with Quorum blockchain.
+                </p>
+                <p>
+                  Previously built custom firmware on STM32 microcontrollers at Smart Computing and deployed edge ML models at Robotics Stellar Skills. I design systems that work at the intersection of hardware, software, and real-world constraints.
+                </p>
               </div>
+            </div>
           </ScrollReveal>
         </div>
       </section>
@@ -82,13 +83,19 @@ export default function Home() {
                     <span className="text-xs sm:text-sm text-text-secondary font-mono">{exp.period}</span>
                   </div>
                   <p className="text-amber text-sm mb-4">{exp.role}</p>
-                  <ul className="space-y-2">
+                  <ul className="space-y-2 mb-4">
                     {exp.highlights.map((h, j) => (
                       <li key={j} className="text-xs sm:text-sm text-text-secondary pl-4 relative before:content-[''] before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:bg-border-light before:rounded-full">
                         {h}
                       </li>
                     ))}
                   </ul>
+                  <Link href={`/experience/${exp.slug}`} className="inline-flex items-center gap-1 text-xs text-amber hover:text-amber-light transition-colors font-medium">
+                    View Details
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
                 </div>
               </ScrollReveal>
             ))}
@@ -122,7 +129,7 @@ export default function Home() {
             <h2 className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl font-bold text-text mb-8 sm:mb-12 tracking-tight">Stack</h2>
           </ScrollReveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {skills.map((cat) => (
+            {skillCategories.map((cat) => (
               <ScrollReveal key={cat.name} className="h-full">
                 <div className="bg-surface rounded-xl p-6 border border-border h-full">
                   <h3 className="text-sm font-bold text-amber mb-4 tracking-wider uppercase">{cat.name}</h3>
@@ -136,6 +143,14 @@ export default function Home() {
                 </div>
               </ScrollReveal>
             ))}
+          </div>
+          <div className="mt-8 text-center">
+            <Link href="/skills" className="inline-flex items-center gap-2 text-sm text-amber hover:text-amber-light transition-colors font-medium">
+              View All Technologies
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
           </div>
         </div>
       </section>

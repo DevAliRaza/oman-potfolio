@@ -31,12 +31,13 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       </Link>
 
       <header className="mb-16">
+        <p className="text-amber font-mono text-xs tracking-[0.2em] mb-3">PROJECT {String(project.number).padStart(2, "0")}</p>
         <h1 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-text mb-4 leading-tight tracking-tight">{project.title}</h1>
         <p className="text-lg text-text-secondary mb-8">{project.subtitle}</p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {project.metrics.map((m) => (
             <div key={m.label} className="bg-surface rounded-xl p-4 border border-border text-center">
-              <p className="text-xl font-bold text-amber">{m.value}</p>
+              <p className="text-xl font-bold text-amber font-mono">{m.value}</p>
               <p className="text-xs text-text-secondary mt-1">{m.label}</p>
             </div>
           ))}
@@ -57,7 +58,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             const [title, desc] = step.split(" — ");
             return (
               <div key={i} className="relative pl-8 pb-6 last:pb-0">
-                <div className="absolute left-0 top-0 bottom-0 w-px bg-amber/20" />
+                <div className="absolute left-0 top-0 bottom-0 w-px bg-border-light" />
                 <div className="absolute left-[-4px] top-1.5 w-2.5 h-2.5 rounded-full bg-amber" />
                 <h3 className="text-text font-semibold text-sm">{title}</h3>
                 {desc && <p className="text-text-secondary text-sm mt-1">{desc}</p>}
@@ -89,15 +90,32 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
+      {project.video && (
+        <section className="mb-16">
+          <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold text-text mb-6">3D Prototype Showcase</h2>
+          <div className="bg-surface rounded-xl overflow-hidden border border-border">
+            <video
+              src={project.video}
+              controls
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full aspect-video"
+            />
+          </div>
+        </section>
+      )}
+
       {project.images.length > 0 && (
         <section className="mb-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className={`grid grid-cols-1 ${project.images.length > 1 ? "md:grid-cols-2" : ""} gap-6`}>
             {project.images.map((img, i) => (
               <figure key={i} className="bg-surface rounded-xl overflow-hidden border border-border">
                 <div className="relative aspect-[4/3]">
                   <Image src={img.src} alt={img.caption} fill className="object-cover" />
                 </div>
-                <figcaption className="p-3 text-xs text-text-secondary">{img.caption}</figcaption>
+                <figcaption className="p-3 text-xs text-text-secondary font-mono">{img.caption}</figcaption>
               </figure>
             ))}
           </div>
@@ -118,7 +136,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         <ul className="space-y-3">
           {project.keyWork.map((item, i) => (
             <li key={i} className="flex items-start gap-3 text-text-secondary">
-              <span className="mt-1.5 w-2 h-2 bg-amber rounded-full shrink-0" />
+              <span className="mt-2 w-2 h-2 bg-amber rounded-full shrink-0" />
               {item}
             </li>
           ))}
@@ -154,7 +172,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               <ul className="space-y-1.5">
                 {stack.items.map((item) => (
                   <li key={item} className="text-sm text-text-secondary flex items-center gap-2">
-                    <span className="w-1 h-1 bg-text-secondary rounded-full" />
+                    <span className="w-1.5 h-1.5 bg-border-light rounded-full" />
                     {item}
                   </li>
                 ))}
