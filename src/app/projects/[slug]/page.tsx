@@ -80,7 +80,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                 <div className="absolute left-0 top-0 bottom-0 w-px bg-border-light" />
                 <div className="absolute left-[-4px] top-1.5 w-2.5 h-2.5 rounded-full bg-amber" />
                 <h3 className="text-text font-semibold text-sm">{title}</h3>
-                {desc && <p className="text-text-secondary text-sm mt-1">{desc}</p>}
+                {desc && <p className="text-text text-sm mt-1">{desc}</p>}
               </div>
             );
           })}
@@ -101,7 +101,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               {project.hardwareTable.map((row, i) => (
                 <tr key={i} className="border-b border-border">
                   <td className="py-3 pr-4 text-text font-medium whitespace-nowrap">{row.subsystem}</td>
-                  <td className="py-3 text-text-secondary">{row.detail}</td>
+                  <td className="py-3 text-text">{row.detail}</td>
                 </tr>
               ))}
             </tbody>
@@ -201,7 +201,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                 {stack.items.map((item) => {
                   const icon = getTechIcon(item);
                   return (
-                    <li key={item} className="text-sm text-text-secondary flex items-center gap-2.5">
+                    <li key={item} className="text-sm text-text flex items-center gap-2.5">
                       {icon ? (
                         <Image src={icon} alt={item} width={18} height={18} className="shrink-0" />
                       ) : (

@@ -44,7 +44,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
         <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold text-text mb-6">Work Contributions</h2>
         <ul className="space-y-4">
           {exp.workContributions.map((item, i) => (
-            <li key={i} className="flex items-start gap-3 text-text-secondary leading-relaxed">
+            <li key={i} className="flex items-start gap-3 text-text leading-relaxed">
               <span className="mt-2 w-2 h-2 bg-amber rounded-full shrink-0" />
               {item}
             </li>
@@ -57,7 +57,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
         <div className="space-y-4">
           {exp.keyAchievements.map((item, i) => (
             <div key={i} className="bg-surface rounded-xl p-5 border border-border">
-              <p className="text-text-secondary leading-relaxed text-sm">{item}</p>
+              <p className="text-text leading-relaxed text-sm">{item}</p>
             </div>
           ))}
         </div>
@@ -71,7 +71,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
               <h3 className="text-xs font-bold text-amber mb-3 tracking-wider uppercase">{tech.category}</h3>
               <div className="flex flex-wrap gap-2">
                 {tech.items.map((item) => (
-                  <span key={item} className="text-xs px-3 py-1.5 bg-surface-light text-text-secondary rounded-lg font-mono">
+                  <span key={item} className="text-xs px-3 py-1.5 bg-surface-light text-text rounded-lg font-mono">
                     {item}
                   </span>
                 ))}

@@ -7,7 +7,7 @@ import { experiences } from "@/data/experience";
 import { skills } from "@/data/skills";
 import { certifications, recognitions, publications } from "@/data/achievements";
 import CircuitTrace from "@/components/CircuitTrace";
-import PCBCardOverlay from "@/components/PCBCardOverlay";
+
 
 const socialLinks = [
   {
@@ -79,7 +79,7 @@ export default function Home() {
                 Oman Khalid<br />Butt
               </h1>
               <p className="text-base sm:text-lg text-text-secondary leading-relaxed mb-4 max-w-lg text-left">
-                Edge AI medical devices. Blockchain energy networks. Autonomous drones. Custom processors on FPGA. I build systems that compute at the hardware boundary.
+                Firmware development, PCB-level hardware debugging, and edge-AI inference on embedded platforms — from bare-metal STM32 to on-device deep learning.
               </p>
               <div className="flex flex-wrap gap-2 mb-7">
                 {["Edge AI", "Blockchain IoT", "Autonomous Systems", "FPGA / RTL"].map((d) => (
@@ -123,7 +123,7 @@ export default function Home() {
                   alt="Oman Khalid Butt"
                   fill
                   sizes="(min-width: 1024px) 384px, (min-width: 640px) 288px, 240px"
-                  className="object-cover scale-[1.15] object-[center_45%]"
+                  className="object-cover scale-[1.8] object-[center_22%]"
                   priority
                 />
               </div>
@@ -203,7 +203,7 @@ export default function Home() {
                   <p className="text-accent text-sm mb-4">{exp.role}</p>
                   <ul className="space-y-2 mb-4">
                     {exp.highlights.map((h, j) => (
-                      <li key={j} className="text-xs sm:text-sm text-text-secondary pl-4 relative before:content-[''] before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:bg-accent/30 before:rounded-full text-left">
+                      <li key={j} className="text-xs sm:text-sm text-text pl-4 relative before:content-[''] before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:bg-accent/30 before:rounded-full text-left">
                         {h}
                       </li>
                     ))}
@@ -258,7 +258,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Education - PCB Board */}
+      {/* Education */}
       <section className="py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-6">
           <ScrollReveal>
@@ -268,27 +268,8 @@ export default function Home() {
             </p>
             <h2 className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl font-bold text-text mb-8 tracking-tight">Education</h2>
 
-            <div className="relative rounded-xl overflow-hidden border border-accent/25 bg-[#0C1A14]">
-              <PCBCardOverlay />
-
-              {/* Pin 1 marker */}
-              <div className="absolute top-3 left-3 w-2.5 h-2.5 rounded-full bg-accent/25" />
-
-              {/* Edge connector pads - top */}
-              <div className="hidden md:flex absolute top-0 left-1/2 -translate-x-1/2 gap-3">
-                {Array.from({ length: 8 }).map((_, i) => (
-                  <div key={i} className="w-2 h-1 bg-accent/15 rounded-b-sm" />
-                ))}
-              </div>
-
-              <div className="relative z-10 p-6 sm:p-8 md:p-10">
-                {/* Silk-screen style label */}
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="px-2.5 py-0.5 border border-accent/25 rounded text-[10px] font-mono text-accent/60 tracking-widest">U1</div>
-                  <div className="flex-1 h-px bg-accent/10" />
-                  <span className="text-[10px] font-mono text-accent/40">REV 2025.A</span>
-                </div>
-
+            <div className="bg-surface/80 backdrop-blur-sm rounded-xl border border-border">
+              <div className="p-6 sm:p-8 md:p-10">
                 <h3 className="font-[family-name:var(--font-display)] text-lg sm:text-xl font-bold text-accent mb-1.5">
                   Bachelor of Science in Electrical Engineering
                 </h3>
@@ -299,11 +280,8 @@ export default function Home() {
                   <span className="text-sm text-accent font-mono font-bold">CGPA: 3.2 / 4.0</span>
                 </div>
 
-                <div className="mt-7 pt-5 border-t border-accent/10">
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className="px-2 py-0.5 border border-accent/20 rounded text-[10px] font-mono text-accent/50">J1</div>
-                    <span className="text-xs text-accent font-mono tracking-wider uppercase">Relevant Coursework</span>
-                  </div>
+                <div className="mt-7 pt-5 border-t border-border">
+                  <h4 className="text-xs text-accent font-mono tracking-wider uppercase mb-4">Relevant Coursework</h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
                     {relevantCourses.map((course) => (
                       <div key={course} className="flex items-center gap-2.5 text-sm text-text-secondary">
@@ -314,21 +292,12 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-accent/10">
-                  <div className="flex items-center gap-2 mb-3">
-                    <div className="px-2 py-0.5 border border-accent/20 rounded text-[10px] font-mono text-accent/50">J2</div>
-                    <span className="text-xs text-accent font-mono tracking-wider uppercase">Notable</span>
-                  </div>
+                <div className="mt-6 pt-4 border-t border-border">
+                  <h4 className="text-xs text-accent font-mono tracking-wider uppercase mb-3">Notable</h4>
                   <p className="text-sm text-text-secondary">Winner — Robotics Competition 2023, IEEE UET RCET Student Branch</p>
                 </div>
               </div>
 
-              {/* Edge connector pads - bottom */}
-              <div className="hidden md:flex absolute bottom-0 left-1/2 -translate-x-1/2 gap-3">
-                {Array.from({ length: 8 }).map((_, i) => (
-                  <div key={i} className="w-2 h-1 bg-accent/15 rounded-t-sm" />
-                ))}
-              </div>
             </div>
           </ScrollReveal>
         </div>
@@ -432,7 +401,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact - PCB Board */}
+      {/* Contact */}
       <section id="contact" className="py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-6">
           <ScrollReveal>
@@ -445,27 +414,8 @@ export default function Home() {
               Open to collaborations, freelance projects, and full-time opportunities.
             </p>
 
-            <div className="relative max-w-2xl rounded-xl overflow-hidden border border-accent/25 bg-[#0C1A14]">
-              <PCBCardOverlay />
-
-              {/* Pin 1 marker */}
-              <div className="absolute top-3 left-3 w-2.5 h-2.5 rounded-full bg-accent/25" />
-
-              {/* Edge connector pads - top */}
-              <div className="hidden md:flex absolute top-0 left-1/2 -translate-x-1/2 gap-3">
-                {Array.from({ length: 6 }).map((_, i) => (
-                  <div key={i} className="w-2 h-1 bg-accent/15 rounded-b-sm" />
-                ))}
-              </div>
-
-              <div className="relative z-10 p-6 sm:p-8">
-                {/* Silk-screen label */}
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="px-2.5 py-0.5 border border-accent/25 rounded text-[10px] font-mono text-accent/60 tracking-widest">CN1</div>
-                  <div className="flex-1 h-px bg-accent/10" />
-                  <span className="text-[10px] font-mono text-accent/40">INTERFACE</span>
-                </div>
-
+            <div className="max-w-2xl bg-surface/80 backdrop-blur-sm rounded-xl border border-border">
+              <div className="p-6 sm:p-8">
                 <div className="space-y-5">
                   {/* Email */}
                   <div className="flex items-center gap-3">
@@ -476,7 +426,7 @@ export default function Home() {
                     <a href="mailto:omanbutt44@gmail.com" className="text-text text-sm font-mono underline underline-offset-2 hover:text-accent transition-colors ml-auto">omanbutt44@gmail.com</a>
                   </div>
 
-                  <div className="h-px bg-accent/8" />
+                  <div className="h-px bg-border" />
 
                   {/* WhatsApp */}
                   <div className="flex items-center gap-3">
@@ -487,7 +437,7 @@ export default function Home() {
                     <a href="https://wa.me/923026802896" target="_blank" rel="noopener noreferrer" className="text-text text-sm font-mono underline underline-offset-2 hover:text-accent transition-colors ml-auto">+92 302 680 2896</a>
                   </div>
 
-                  <div className="h-px bg-accent/8" />
+                  <div className="h-px bg-border" />
 
                   {/* LinkedIn */}
                   <div className="flex items-center gap-3">
@@ -498,7 +448,7 @@ export default function Home() {
                     <a href="https://www.linkedin.com/in/oman-khalid-butt/" target="_blank" rel="noopener noreferrer" className="text-text text-sm font-mono underline underline-offset-2 hover:text-accent transition-colors ml-auto">/in/oman-khalid-butt</a>
                   </div>
 
-                  <div className="h-px bg-accent/8" />
+                  <div className="h-px bg-border" />
 
                   {/* GitHub */}
                   <div className="flex items-center gap-3">
@@ -511,7 +461,7 @@ export default function Home() {
                 </div>
 
                 {/* CTA */}
-                <div className="mt-7 pt-5 border-t border-accent/10">
+                <div className="mt-7 pt-5 border-t border-border">
                   <a
                     href="mailto:omanbutt44@gmail.com"
                     className="inline-flex items-center gap-2 px-6 py-2.5 bg-accent hover:bg-accent-light text-[#0A1410] rounded-lg font-mono text-sm font-bold transition-all glow-green-sm hover:glow-green"
@@ -524,12 +474,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Edge connector pads - bottom */}
-              <div className="hidden md:flex absolute bottom-0 left-1/2 -translate-x-1/2 gap-3">
-                {Array.from({ length: 6 }).map((_, i) => (
-                  <div key={i} className="w-2 h-1 bg-accent/15 rounded-t-sm" />
-                ))}
-              </div>
             </div>
           </ScrollReveal>
         </div>

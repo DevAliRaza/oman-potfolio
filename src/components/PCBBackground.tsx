@@ -205,9 +205,9 @@ export default function PCBBackground() {
 
     function cursorGlow(x: number, y: number, baseAlpha: number): number {
       const dist = distToMouse(x, y);
-      const radius = 200;
+      const radius = 280;
       if (dist > radius) return baseAlpha;
-      const boost = (1 - dist / radius) * 0.6;
+      const boost = (1 - dist / radius) * 0.9;
       return Math.min(1, baseAlpha + boost);
     }
 
@@ -221,12 +221,12 @@ export default function PCBBackground() {
 
       // Cursor glow circle
       if (mx > -500 && my > -500) {
-        const cursorGrad = ctx!.createRadialGradient(mx, my, 0, mx, my, 220);
-        cursorGrad.addColorStop(0, "rgba(92,240,138,0.06)");
-        cursorGrad.addColorStop(0.5, "rgba(32,200,216,0.03)");
+        const cursorGrad = ctx!.createRadialGradient(mx, my, 0, mx, my, 300);
+        cursorGrad.addColorStop(0, "rgba(92,240,138,0.08)");
+        cursorGrad.addColorStop(0.4, "rgba(32,200,216,0.04)");
         cursorGrad.addColorStop(1, "transparent");
         ctx!.fillStyle = cursorGrad;
-        ctx!.fillRect(mx - 220, my - 220, 440, 440);
+        ctx!.fillRect(mx - 300, my - 300, 600, 600);
       }
 
       // Draw traces
@@ -234,7 +234,7 @@ export default function PCBBackground() {
         for (const seg of trace.segments) {
           const midX = (seg.x1 + seg.x2) / 2;
           const midY = (seg.y1 + seg.y2) / 2;
-          const alpha = cursorGlow(midX, midY, 0.12);
+          const alpha = cursorGlow(midX, midY, 0.04);
           ctx!.beginPath();
           ctx!.moveTo(seg.x1, seg.y1);
           ctx!.lineTo(seg.x2, seg.y2);
@@ -247,7 +247,7 @@ export default function PCBBackground() {
 
       // Draw IC pads
       for (const ic of data.ics) {
-        const alpha = cursorGlow(ic.x + ic.w / 2, ic.y + ic.h / 2, 0.08);
+        const alpha = cursorGlow(ic.x + ic.w / 2, ic.y + ic.h / 2, 0.025);
         ctx!.strokeStyle = `rgba(92,240,138,${alpha})`;
         ctx!.lineWidth = 1;
         ctx!.strokeRect(ic.x, ic.y, ic.w, ic.h);
@@ -268,7 +268,7 @@ export default function PCBBackground() {
 
       // Draw vias
       for (const via of data.vias) {
-        const alpha = cursorGlow(via.x, via.y, 0.15);
+        const alpha = cursorGlow(via.x, via.y, 0.05);
         // Outer annular ring
         ctx!.beginPath();
         ctx!.arc(via.x, via.y, via.r, 0, Math.PI * 2);
