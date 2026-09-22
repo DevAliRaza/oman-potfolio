@@ -4,10 +4,14 @@
   --font-sans: var(--font-inter);
   --font-display: var(--font-display);
   --font-mono: var(--font-mono);
-  --color-amber: var(--c-amber);
-  --color-amber-light: var(--c-amber-light);
-  --color-amber-dim: var(--c-amber-dim);
-  --color-teal: #4A9A7E;
+  --color-accent: var(--c-accent);
+  --color-accent-light: var(--c-accent-light);
+  --color-accent-dim: var(--c-accent-dim);
+  --color-accent-cyan: var(--c-accent-cyan);
+  --color-amber: var(--c-accent);
+  --color-amber-light: var(--c-accent-light);
+  --color-amber-dim: var(--c-accent-dim);
+  --color-teal: var(--c-accent-cyan);
   --color-surface: var(--c-surface);
   --color-surface-light: var(--c-surface-light);
   --color-border: var(--c-border);
@@ -19,31 +23,33 @@
 }
 
 :root, .dark {
-  --c-bg: #0A0A0F;
-  --c-surface: #141419;
-  --c-surface-light: #1A1A22;
-  --c-border: #1E1E26;
-  --c-border-light: #2A2A35;
-  --c-text: #E8E6E3;
-  --c-text-secondary: #8A8A95;
-  --c-amber: #D4A04A;
-  --c-amber-light: #E8B85A;
-  --c-amber-dim: rgba(212, 160, 74, 0.2);
-  --c-header-bg: rgba(10, 10, 15, 0.8);
+  --c-bg: #0A1410;
+  --c-surface: #0F1F18;
+  --c-surface-light: #142A20;
+  --c-border: #1A3328;
+  --c-border-light: #244436;
+  --c-text: #EAF7EF;
+  --c-text-secondary: #9DB3A6;
+  --c-accent: #5CF08A;
+  --c-accent-light: #7DFFA8;
+  --c-accent-dim: rgba(92, 240, 138, 0.15);
+  --c-accent-cyan: #20C8D8;
+  --c-header-bg: rgba(10, 20, 16, 0.85);
 }
 
 .light {
-  --c-bg: #F8F7F4;
+  --c-bg: #F0F7F3;
   --c-surface: #FFFFFF;
-  --c-surface-light: #F0EFE9;
-  --c-border: #E2E0D8;
-  --c-border-light: #D4D2CA;
-  --c-text: #1A1A1F;
-  --c-text-secondary: #5A5A65;
-  --c-amber: #B8882E;
-  --c-amber-light: #D4A04A;
-  --c-amber-dim: rgba(184, 136, 46, 0.15);
-  --c-header-bg: rgba(248, 247, 244, 0.85);
+  --c-surface-light: #E8F2EC;
+  --c-border: #C8DDD0;
+  --c-border-light: #B0CCBA;
+  --c-text: #0A1410;
+  --c-text-secondary: #3D5A4A;
+  --c-accent: #1A9B4A;
+  --c-accent-light: #22B85A;
+  --c-accent-dim: rgba(26, 155, 74, 0.12);
+  --c-accent-cyan: #189AA8;
+  --c-header-bg: rgba(240, 247, 243, 0.88);
 }
 
 html {
@@ -57,5 +63,17 @@ body {
 }
 
 ::selection {
-  background-color: var(--c-amber-dim);
+  background-color: var(--c-accent-dim);
+}
+
+.glow-green {
+  box-shadow: 0 0 20px rgba(92, 240, 138, 0.3), 0 0 60px rgba(92, 240, 138, 0.1);
+}
+
+.glow-green-sm {
+  box-shadow: 0 0 10px rgba(92, 240, 138, 0.2), 0 0 30px rgba(92, 240, 138, 0.08);
+}
+
+.text-glow {
+  text-shadow: 0 0 20px rgba(92, 240, 138, 0.4), 0 0 40px rgba(92, 240, 138, 0.15);
 }

@@ -71,7 +71,7 @@ export const projects: Project[] = [
       { subsystem: "Enclosure", detail: "3D-printed acrylic frame integrating optics, SBC, MCU, display, controls and battery in a hand-held form factor (< 950 g)" },
     ],
     images: [
-      { src: "/images/projects/page5_img1.png", caption: "Fig 1.1 — Internal layout: Raspberry Pi 5 SBC, display driver PCB and camera ribbon routed to the optical assembly, mounted inside the 3D-printed enclosure" },
+      { src: "/images/projects/retina-3d-render.jpg", caption: "Fig 1.1 — 3D render of the retina screening device: front view with LCD display, joystick, control buttons and back view showing USB ports, Ethernet and optical lens assembly" },
     ],
     softwareAI: [
       "Application code runs on Raspberry Pi OS in Python 3.10. Image capture and preprocessing are implemented with OpenCV; the user interface is composed with PyGame and rendered directly to the LCD framebuffer. Inference uses TensorFlow Lite for the quantised models, with the training-time toolchain (TensorFlow / Keras, PyTorch for exploratory work) kept off-device.",
@@ -122,7 +122,7 @@ export const projects: Project[] = [
     title: "Blockchain-Enabled P2P Decentralized Smart Energy Trading Platform",
     subtitle: "Consortium blockchain and smart-meter cluster on Raspberry Pi nodes with a double-auction matching algorithm.",
     tags: ["Quorum / IBFT", "10-node cluster", "Smart Meter", "Solidity"],
-    cardImage: "/images/projects/energy-trading-final.jpeg",
+    cardImage: "/images/projects/energy-trading-enclosure.jpeg",
     metrics: [
       { value: "10", label: "Blockchain nodes" },
       { value: "IBFT", label: "BFT consensus" },
@@ -152,7 +152,7 @@ export const projects: Project[] = [
       { subsystem: "Enclosure", detail: "3D-printed housing integrating SBC, meter, battery, RS-485 module, relay and display; screw terminals for AC input / output wiring" },
     ],
     images: [
-      { src: "/images/projects/energy-trading-final.jpeg", caption: "Fig 2.1 — Fully assembled node: 3D-printed enclosure with Raspberry Pi, LCD status display, and terminal blocks for AC input/output" },
+      { src: "/images/projects/energy-trading-enclosure.jpeg", caption: "Fig 2.1 — Fully assembled node: 3D-printed enclosure with Raspberry Pi, LCD status display, USB ports, and hexagonal ventilation pattern" },
     ],
     keyWork: [
       "Running a full Quorum blockchain client on Raspberry Pi 4 — non-trivial given the ARM build target and the resource profile of a full Ethereum-family node",
