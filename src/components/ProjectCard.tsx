@@ -8,14 +8,14 @@ export default function ProjectCard({ project }: { project: Project }) {
       href={`/projects/${project.slug}`}
       className="group flex flex-col bg-surface/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-border hover:border-accent/30 transition-all duration-300 hover:-translate-y-1 h-full"
     >
-      <div className="relative h-48 overflow-hidden shrink-0">
+      <div className="relative h-52 overflow-hidden shrink-0 bg-surface-light">
         <Image
           src={project.cardImage}
           alt={project.title}
           fill
-          className="object-cover group-hover:scale-105 transition-transform duration-500"
+          className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-surface to-transparent" />
       </div>
       <div className="p-6 flex flex-col flex-1">
         <h3 className="font-[family-name:var(--font-display)] text-lg font-bold text-text mb-2 group-hover:text-accent transition-colors leading-tight min-h-[3.5rem]">

@@ -195,7 +195,7 @@ export const projects: Project[] = [
     title: "AI-Driven Autonomous Surveillance Drone",
     subtitle: "Custom quadcopter running YOLOv7 on-board, autonomous navigation on PX4, and low-latency MAVLink telemetry.",
     tags: ["YOLOv7", "PX4 / Cube Orange", "MAVLink", "Raspberry Pi 5"],
-    cardImage: "/images/projects/page22_img1.png",
+    cardImage: "/images/projects/drone-quad.jpg",
     metrics: [
       { value: "91.2%", label: "mAP@0.5 (YOLOv7)" },
       { value: "23 FPS", label: "On-Pi inference" },
@@ -225,7 +225,7 @@ export const projects: Project[] = [
       { subsystem: "Power", detail: "4S 5200 mAh Li-Po pack feeding both propulsion and computation; sized for full-mission continuous inference" },
     ],
     images: [
-      { src: "/images/projects/page22_img1.png", caption: "Fig 3.1 — Fully assembled and powered-up prototype on demonstration day" },
+      { src: "/images/projects/drone-quad.jpg", caption: "Fig 3.1 — Fully assembled and powered-up prototype on demonstration day" },
     ],
     softwareAI: [
       "The perception stack runs a custom-trained YOLOv7 model on the on-board Raspberry Pi, targeting surveillance-relevant classes (people, vehicles, bags, intruders) via transfer learning from COCO weights. Training-time augmentation covered rotation, brightness normalisation and motion blur to reflect real airborne footage. The deployed model is optimised with TensorRT to hit the frame-rate budget required for live detection during flight.",

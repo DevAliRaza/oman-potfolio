@@ -2,6 +2,23 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { projects } from "@/data/projects";
+import { skills } from "@/data/skills";
+
+const techIconMap: Record<string, string> = {};
+for (const cat of skills) {
+  for (const s of cat.items) {
+    if (s.icon) techIconMap[s.name.toLowerCase()] = s.icon;
+  }
+}
+
+function getTechIcon(name: string): string | undefined {
+  const lower = name.toLowerCase();
+  if (techIconMap[lower]) return techIconMap[lower];
+  for (const [key, url] of Object.entries(techIconMap)) {
+    if (lower.includes(key) || key.includes(lower)) return url;
+  }
+  return undefined;
+}
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -46,9 +63,11 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
       <section className="mb-16">
         <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold text-text mb-6">Overview</h2>
-        {project.overview.map((p, i) => (
-          <p key={i} className="text-text-secondary leading-relaxed mb-4">{p}</p>
-        ))}
+        <div className="bg-surface/80 backdrop-blur-sm rounded-xl p-6 border border-border">
+          {project.overview.map((p, i) => (
+            <p key={i} className="text-text leading-relaxed mb-4 last:mb-0">{p}</p>
+          ))}
+        </div>
       </section>
 
       <section className="mb-16">
@@ -125,22 +144,26 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       {project.softwareAI && (
         <section className="mb-16">
           <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold text-text mb-6">Software &amp; AI</h2>
-          {project.softwareAI.map((p, i) => (
-            <p key={i} className="text-text-secondary leading-relaxed mb-4">{p}</p>
-          ))}
+          <div className="bg-surface/80 backdrop-blur-sm rounded-xl p-6 border border-border">
+            {project.softwareAI.map((p, i) => (
+              <p key={i} className="text-text leading-relaxed mb-4 last:mb-0">{p}</p>
+            ))}
+          </div>
         </section>
       )}
 
       <section className="mb-16">
         <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold text-text mb-6">Key Engineering Work</h2>
-        <ul className="space-y-3">
-          {project.keyWork.map((item, i) => (
-            <li key={i} className="flex items-start gap-3 text-text-secondary">
-              <span className="mt-2 w-2 h-2 bg-amber rounded-full shrink-0" />
-              {item}
-            </li>
-          ))}
-        </ul>
+        <div className="bg-surface/80 backdrop-blur-sm rounded-xl p-6 border border-border">
+          <ul className="space-y-3">
+            {project.keyWork.map((item, i) => (
+              <li key={i} className="flex items-start gap-3 text-text">
+                <span className="mt-2 w-2 h-2 bg-amber rounded-full shrink-0" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
 
       <section className="mb-16">
@@ -158,9 +181,13 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             </div>
           </div>
         ))}
-        {project.resultsNotes?.map((note, i) => (
-          <p key={i} className="text-text-secondary text-sm leading-relaxed mb-3">{note}</p>
-        ))}
+        {project.resultsNotes && project.resultsNotes.length > 0 && (
+          <div className="bg-surface/80 backdrop-blur-sm rounded-xl p-5 border border-border mt-4">
+            {project.resultsNotes.map((note, i) => (
+              <p key={i} className="text-text text-sm leading-relaxed mb-3 last:mb-0">{note}</p>
+            ))}
+          </div>
+        )}
       </section>
 
       <section className="mb-16">
@@ -169,13 +196,22 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           {project.techStack.map((stack) => (
             <div key={stack.category} className="bg-surface rounded-xl p-5 border border-border">
               <h3 className="text-xs font-bold text-amber mb-3 tracking-wider uppercase">{stack.category}</h3>
-              <ul className="space-y-1.5">
-                {stack.items.map((item) => (
-                  <li key={item} className="text-sm text-text-secondary flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-border-light rounded-full" />
-                    {item}
-                  </li>
-                ))}
+              <ul className="space-y-2">
+                {stack.items.map((item) => {
+                  const icon = getTechIcon(item);
+                  return (
+                    <li key={item} className="text-sm text-text-secondary flex items-center gap-2.5">
+                      {icon ? (
+                        <Image src={icon} alt={item} width={18} height={18} className="shrink-0" />
+                      ) : (
+                        <span className="w-[18px] h-[18px] flex items-center justify-center shrink-0">
+                          <span className="w-1.5 h-1.5 bg-border-light rounded-full" />
+                        </span>
+                      )}
+                      {item}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}

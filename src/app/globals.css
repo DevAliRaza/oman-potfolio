@@ -66,6 +66,20 @@ body {
   background-color: var(--c-accent-dim);
 }
 
+:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .opacity-0 {
+    opacity: 1 !important;
+  }
+  .translate-y-6 {
+    transform: none !important;
+  }
+}
+
 .glow-green {
   box-shadow: 0 0 20px rgba(92, 240, 138, 0.3), 0 0 60px rgba(92, 240, 138, 0.1);
 }

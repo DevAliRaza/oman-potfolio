@@ -333,16 +333,29 @@ export default function PCBBackground() {
       animRef.current = requestAnimationFrame(draw);
     }
 
+    let paused = false;
+    function handleVisibility() {
+      if (document.hidden) {
+        paused = true;
+        cancelAnimationFrame(animRef.current);
+      } else if (paused) {
+        paused = false;
+        draw();
+      }
+    }
+
     draw();
 
     const handleResize = () => { resize(); };
     window.addEventListener("resize", handleResize);
+    document.addEventListener("visibilitychange", handleVisibility);
 
     return () => {
       cancelAnimationFrame(animRef.current);
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseleave", handleMouseLeave);
+      document.removeEventListener("visibilitychange", handleVisibility);
     };
   }, []);
 
