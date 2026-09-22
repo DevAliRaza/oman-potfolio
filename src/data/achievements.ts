@@ -29,7 +29,7 @@ export const certifications: Achievement[] = [
     issuer: "IBM / Coursera",
     date: "20 June 2025",
     description:
-      "A professional-level programme covering the design, development and deployment of AI-powered applications, including generative AI, large-language-model integration, Python for AI, and building end-to-end AI solutions on cloud infrastructure. The credential is backed by Credly for third-party verification.",
+      "Professional programme covering design, development and deployment of AI-powered applications — generative AI, LLM integration, Python for AI, and end-to-end AI solutions. Credly-verified.",
     image: "/images/achievements/ibm-ai-developer.jpeg",
     verifyUrl:
       "https://www.credly.com/badges/9925ab67-37af-4428-9a84-84da1619c561",
@@ -40,7 +40,7 @@ export const certifications: Achievement[] = [
     issuer: "Stanford Online / DeepLearning.AI",
     date: "25 February 2025",
     description:
-      "Three-course specialisation delivered by Stanford Online and DeepLearning.AI, covering supervised learning (linear and logistic regression, neural networks, decision trees), advanced learning algorithms, unsupervised learning, recommender systems and reinforcement learning, with practical model-building throughout. Instructor: Andrew Ng.",
+      "Three-course specialisation: supervised learning, neural networks, unsupervised learning, recommender systems and reinforcement learning. Instructor: Andrew Ng.",
     image: "/images/achievements/ml-specialization.jpeg",
     verifyUrl:
       "https://coursera.org/verify/specialization/81RVNLR6TVEW",
@@ -52,7 +52,7 @@ export const certifications: Achievement[] = [
     issuer: "Pak Angels / iCode Guru / Aspire Pakistan",
     date: "28 August 2025",
     description:
-      "Awarded on completion of the Pak Angels Generative AI training programme (Silicon Valley, CA), covering practical development of generative-AI applications. Recognised as a Top Performer of the cohort. Training: June – July 2025. Cert ID: 21350342f38065c7.",
+      "Practical GenAI application development. Recognised as Top Performer of the cohort. Training: June–July 2025.",
     image: "/images/achievements/genai-top-performer.png",
     category: "certification",
   },
@@ -64,7 +64,7 @@ export const recognitions: Achievement[] = [
     issuer: "IEEE Society, UET Rachna College of Engineering and Technology (RCET)",
     date: "2023",
     description:
-      "Awarded first place in the robotics competition organised by the IEEE Society at UET RCET. The event assessed hands-on robotics engineering under time-bounded competitive conditions.",
+      "First place — hands-on robotics engineering under time-bounded competitive conditions.",
     linkedinUrl: "https://lnkd.in/p/dXhkCfd7",
     category: "recognition",
   },
@@ -73,7 +73,7 @@ export const recognitions: Achievement[] = [
     issuer: "IEEE ComSoc Lahore Chapter / KICS, UET Lahore",
     date: "26 December 2024",
     description:
-      "Presented as a Distinguished Guest at the IEEE Communications Society (ComSoc) Lahore Chapter Annual Meet-Up 2024, held at UET Lahore in association with the Al Khawarizmi Institute of Computer Science (KICS).",
+      "Distinguished Guest at IEEE ComSoc Lahore Chapter Annual Meet-Up 2024, UET Lahore / KICS.",
     image: "/images/achievements/ieee-comsoc-recognition.png",
     linkedinUrl: "https://lnkd.in/p/d4xPhc_H",
     category: "recognition",

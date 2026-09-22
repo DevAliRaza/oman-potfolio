@@ -14,7 +14,7 @@ export interface SimpleSkillCategory {
 }
 
 const devicon = (name: string) =>
-  `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${name}`;
+  `https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/${name}`;
 
 export const skills: SkillCategory[] = [
   {
@@ -25,7 +25,6 @@ export const skills: SkillCategory[] = [
       { name: "C++", icon: devicon("cplusplus/cplusplus-original.svg") },
       { name: "SQL", icon: devicon("azuresqldatabase/azuresqldatabase-original.svg") },
       { name: "Verilog HDL" },
-      { name: "Solidity", icon: devicon("solidity/solidity-original.svg") },
     ],
   },
   {

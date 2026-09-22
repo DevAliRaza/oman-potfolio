@@ -71,22 +71,30 @@ export default function Home() {
         <div className="relative z-10 max-w-6xl mx-auto px-6 w-full">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 md:gap-16">
             <div className="flex flex-col items-center md:items-start text-center md:text-left max-w-xl order-1">
-              <p className="flex items-center gap-3 text-accent font-mono text-xs sm:text-sm mb-4 tracking-[0.2em] uppercase">
+              <p className="flex items-center gap-3 text-text-secondary font-mono text-xs sm:text-sm mb-4 tracking-wide">
                 <span className="w-8 h-px bg-accent" />
-                Embedded Systems Engineer
+                Lahore, PK · Open to Embedded / Edge-AI Roles
               </p>
               <h1 className="font-[family-name:var(--font-display)] text-4xl sm:text-5xl md:text-7xl font-bold text-text leading-[1.05] mb-6 tracking-tight">
                 Oman Khalid<br />Butt
               </h1>
-              <p className="text-base sm:text-lg text-text-secondary leading-relaxed mb-8 max-w-lg text-left">
+              <p className="text-base sm:text-lg text-text-secondary leading-relaxed mb-4 max-w-lg text-left">
                 Edge AI medical devices. Blockchain energy networks. Autonomous drones. Custom processors on FPGA. I build systems that compute at the hardware boundary.
               </p>
-              <div className="flex items-center gap-4 mb-6">
+              <div className="flex flex-wrap gap-2 mb-7">
+                {["Edge AI", "Blockchain IoT", "Autonomous Systems", "FPGA / RTL"].map((d) => (
+                  <span key={d} className="text-[11px] px-2.5 py-1 rounded-full border border-accent/25 text-accent font-mono">{d}</span>
+                ))}
+              </div>
+              <div className="flex items-center gap-3 sm:gap-4 mb-6 flex-wrap">
                 <a href="#projects" className="px-7 py-3 bg-accent hover:bg-accent-light text-[#0A1410] rounded-full font-semibold transition-all text-sm glow-green-sm hover:glow-green">
                   View Projects
                 </a>
-                <a href="#contact" className="px-7 py-3 rounded-full border border-accent/40 text-accent hover:bg-accent/10 hover:border-accent transition-all text-sm font-medium">
-                  Get in Touch
+                <a href="/Oman_Khalid_Butt_CV.pdf" target="_blank" rel="noopener noreferrer" className="px-7 py-3 rounded-full border border-accent/40 text-accent hover:bg-accent/10 hover:border-accent transition-all text-sm font-medium">
+                  Download CV
+                </a>
+                <a href="#contact" className="px-7 py-3 rounded-full border border-border text-text-secondary hover:text-accent hover:border-accent/40 transition-all text-sm font-medium">
+                  Contact
                 </a>
               </div>
               {/* Connect with me */}
@@ -114,6 +122,7 @@ export default function Home() {
                   src="/images/oman-hero.jpg"
                   alt="Oman Khalid Butt"
                   fill
+                  sizes="(min-width: 1024px) 384px, (min-width: 640px) 288px, 240px"
                   className="object-cover scale-[1.15] object-[center_45%]"
                   priority
                 />
@@ -123,14 +132,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Introduction */}
+      {/* About */}
       <section id="about" className="py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-6">
           <ScrollReveal>
             <div>
               <p className="flex items-center gap-3 text-accent font-mono text-xs mb-4 tracking-[0.2em] uppercase">
                 <span className="w-6 h-px bg-accent" />
-                Introduction
+                About
               </p>
               <h2 className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl font-bold text-text mb-6 sm:mb-8 tracking-tight">What I Do</h2>
               <div className="bg-surface/80 backdrop-blur-sm rounded-xl p-6 sm:p-8 border border-border">
@@ -148,13 +157,36 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Projects */}
+      <section id="projects" className="py-16 md:py-24">
+        <div className="max-w-6xl mx-auto px-6">
+          <ScrollReveal>
+            <p className="flex items-center gap-3 text-accent font-mono text-xs mb-4 tracking-[0.2em] uppercase">
+              <span className="w-6 h-px bg-accent" />
+              Projects
+            </p>
+            <h2 className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl font-bold text-text mb-4 tracking-tight">Projects</h2>
+            <p className="text-text-secondary mb-8 sm:mb-12 max-w-2xl text-sm sm:text-base text-left">
+              End-to-end engineering — from schematic capture to deployed firmware, from trained models to physical prototypes.
+            </p>
+          </ScrollReveal>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+            {projects.map((project) => (
+              <ScrollReveal key={project.slug} className="h-full">
+                <ProjectCard project={project} />
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Experience */}
       <section id="experience" className="py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-6">
           <ScrollReveal>
             <p className="flex items-center gap-3 text-accent font-mono text-xs mb-4 tracking-[0.2em] uppercase">
               <span className="w-6 h-px bg-accent" />
-              Career
+              Experience
             </p>
             <h2 className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl font-bold text-text mb-8 sm:mb-12 tracking-tight">Experience</h2>
           </ScrollReveal>
@@ -189,36 +221,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Projects */}
-      <section id="projects" className="py-16 md:py-24">
-        <div className="max-w-6xl mx-auto px-6">
-          <ScrollReveal>
-            <p className="flex items-center gap-3 text-accent font-mono text-xs mb-4 tracking-[0.2em] uppercase">
-              <span className="w-6 h-px bg-accent" />
-              Portfolio
-            </p>
-            <h2 className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl font-bold text-text mb-4 tracking-tight">Projects</h2>
-            <p className="text-text-secondary mb-8 sm:mb-12 max-w-2xl text-sm sm:text-base text-left">
-              End-to-end engineering — from schematic capture to deployed firmware, from trained models to physical prototypes.
-            </p>
-          </ScrollReveal>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
-            {projects.map((project) => (
-              <ScrollReveal key={project.slug} className="h-full">
-                <ProjectCard project={project} />
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Skills */}
       <section id="skills" className="py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-6">
           <ScrollReveal>
             <p className="flex items-center gap-3 text-accent font-mono text-xs mb-4 tracking-[0.2em] uppercase text-center justify-center">
               <span className="w-6 h-px bg-accent" />
-              Tech Stack
+              Skills
             </p>
             <h2 className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl font-bold text-text mb-10 sm:mb-14 tracking-tight text-center">Technologies I Work With</h2>
           </ScrollReveal>
@@ -235,28 +244,6 @@ export default function Home() {
                   <span className="text-[11px] sm:text-xs text-text-secondary font-mono group-hover:text-accent transition-colors text-center max-w-[5rem] leading-tight">{skill.name}</span>
                 </div>
               ))}
-            </div>
-          </ScrollReveal>
-
-          {/* Remaining skills without icons — grouped by category */}
-          <ScrollReveal>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {skills.map((cat) => {
-                const noIconSkills = cat.items.filter((s) => !s.icon);
-                if (noIconSkills.length === 0) return null;
-                return (
-                  <div key={cat.name} className="bg-surface/80 backdrop-blur-sm rounded-xl p-5 border border-border">
-                    <h3 className="text-xs font-bold text-accent mb-3 tracking-wider uppercase">{cat.name}</h3>
-                    <div className="flex flex-wrap gap-2">
-                      {noIconSkills.map((skill) => (
-                        <span key={skill.name} className="text-xs px-3 py-1.5 bg-surface-light text-text-secondary rounded-lg font-mono border border-border">
-                          {skill.name}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                );
-              })}
             </div>
           </ScrollReveal>
 
@@ -277,7 +264,7 @@ export default function Home() {
           <ScrollReveal>
             <p className="flex items-center gap-3 text-accent font-mono text-xs mb-4 tracking-[0.2em] uppercase">
               <span className="w-6 h-px bg-accent" />
-              Academic
+              Education
             </p>
             <h2 className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl font-bold text-text mb-8 tracking-tight">Education</h2>
 
@@ -353,7 +340,7 @@ export default function Home() {
           <ScrollReveal>
             <p className="flex items-center gap-3 text-accent font-mono text-xs mb-4 tracking-[0.2em] uppercase">
               <span className="w-6 h-px bg-accent" />
-              Credentials
+              Achievements
             </p>
             <h2 className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl font-bold text-text mb-4 tracking-tight">Achievements & Certificates</h2>
             <p className="text-text-secondary mb-8 sm:mb-12 max-w-2xl text-sm sm:text-base text-left">
@@ -372,14 +359,21 @@ export default function Home() {
                     {cert.image && (
                       <div className="sm:w-44 shrink-0 bg-surface-light border-b sm:border-b-0 sm:border-r border-border">
                         <div className="relative aspect-[4/3]">
-                          <Image src={cert.image} alt={cert.title} fill className="object-contain p-3" />
+                          <Image src={cert.image} alt={cert.title} fill sizes="176px" className="object-contain p-3" />
                         </div>
                       </div>
                     )}
                     <div className="p-4 sm:p-5 flex flex-col justify-center min-w-0">
                       <p className="text-xs text-text-secondary font-mono mb-1">{cert.issuer}</p>
                       <h4 className="text-sm sm:text-base font-bold text-text mb-1">{cert.title}</h4>
-                      <p className="text-accent text-xs font-mono mb-2">{cert.date}</p>
+                      <div className="flex items-center gap-3 mb-2">
+                        <span className="text-accent text-xs font-mono">{cert.date}</span>
+                        {cert.verifyUrl && (
+                          <a href={cert.verifyUrl} target="_blank" rel="noopener noreferrer" className="text-xs text-accent hover:text-accent-light underline underline-offset-2 font-mono">
+                            Verify
+                          </a>
+                        )}
+                      </div>
                       <p className="text-xs sm:text-sm text-text-secondary leading-relaxed line-clamp-2 text-left">{cert.description}</p>
                     </div>
                   </div>
@@ -414,7 +408,14 @@ export default function Home() {
                   <p className="text-xs text-text-secondary font-mono mb-1">{pub.venue}</p>
                   <h4 className="text-sm sm:text-base font-bold text-text mb-1 leading-snug">{pub.title}</h4>
                   <p className="text-xs text-text-secondary mb-1">{pub.authors}</p>
-                  <p className="text-accent text-xs font-mono">{pub.date}</p>
+                  <div className="flex items-center gap-3 mt-1">
+                    <span className="text-accent text-xs font-mono">{pub.date}</span>
+                    {pub.doiUrl && (
+                      <a href={pub.doiUrl} target="_blank" rel="noopener noreferrer" className="text-xs text-accent hover:text-accent-light underline underline-offset-2 font-mono">
+                        DOI
+                      </a>
+                    )}
+                  </div>
                 </div>
               </ScrollReveal>
             ))}
@@ -437,7 +438,7 @@ export default function Home() {
           <ScrollReveal>
             <p className="flex items-center gap-3 text-accent font-mono text-xs mb-4 tracking-[0.2em] uppercase">
               <span className="w-6 h-px bg-accent" />
-              Connect
+              Contact
             </p>
             <h2 className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl font-bold text-text mb-4 tracking-tight">Get In Touch</h2>
             <p className="text-text-secondary mb-8 sm:mb-10 text-sm sm:text-base">

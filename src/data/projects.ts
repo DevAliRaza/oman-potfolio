@@ -20,6 +20,7 @@ export interface Project {
   subtitle: string;
   tags: string[];
   cardImage: string;
+  cardMetrics?: string[];
   metrics: ProjectMetric[];
   overview: string[];
   architecture: string[];
@@ -41,6 +42,7 @@ export const projects: Project[] = [
     title: "Edge AI Device for Retina Disease Detection",
     subtitle: "Portable embedded fundus camera running multi-model CNN inference on-device for diabetic retinopathy and cataract screening.",
     tags: ["Raspberry Pi 5", "CNN Ensemble", "TF Lite", "Offline"],
+    cardMetrics: ["< 2 s inference", "96.3% cataract acc."],
     cardImage: "/images/projects/retina-3d-render.jpg",
     video: "/videos/retina-device-3d.mp4",
     metrics: [
@@ -122,6 +124,7 @@ export const projects: Project[] = [
     title: "Blockchain-Enabled P2P Decentralized Smart Energy Trading Platform",
     subtitle: "Consortium blockchain and smart-meter cluster on Raspberry Pi nodes with a double-auction matching algorithm.",
     tags: ["Quorum / IBFT", "10-node cluster", "Smart Meter", "Solidity"],
+    cardMetrics: ["10 blockchain nodes", "~200 TPS capacity"],
     cardImage: "/images/projects/energy-trading-enclosure.jpeg",
     metrics: [
       { value: "10", label: "Blockchain nodes" },
@@ -195,6 +198,7 @@ export const projects: Project[] = [
     title: "AI-Driven Autonomous Surveillance Drone",
     subtitle: "Custom quadcopter running YOLOv7 on-board, autonomous navigation on PX4, and low-latency MAVLink telemetry.",
     tags: ["YOLOv7", "PX4 / Cube Orange", "MAVLink", "Raspberry Pi 5"],
+    cardMetrics: ["91.2% mAP@0.5", "23 FPS on-device"],
     cardImage: "/images/projects/drone-quad.jpg",
     metrics: [
       { value: "91.2%", label: "mAP@0.5 (YOLOv7)" },
@@ -278,6 +282,7 @@ export const projects: Project[] = [
     title: "High-Performance RISC-V Processor with 3-Stage Pipeline on FPGA",
     subtitle: "Custom Verilog implementation with fetch, decode/execute and memory/writeback stages, verified on Xilinx Nexys A7.",
     tags: ["RISC-V", "Verilog", "3-Stage Pipeline", "Nexys A7"],
+    cardMetrics: ["3-stage pipeline", "245 nets in RTL"],
     cardImage: "/images/projects/page28_img1.jpeg",
     metrics: [
       { value: "3", label: "Pipeline stages" },

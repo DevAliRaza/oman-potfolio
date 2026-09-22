@@ -54,7 +54,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {project.metrics.map((m) => (
             <div key={m.label} className="bg-surface rounded-xl p-4 border border-border text-center">
-              <p className="text-xl font-bold text-amber font-mono">{m.value}</p>
+              <p className="text-xl font-bold text-amber font-mono tabular-nums">{m.value}</p>
               <p className="text-xs text-text-secondary mt-1">{m.label}</p>
             </div>
           ))}
@@ -115,6 +115,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           <div className="bg-surface rounded-xl overflow-hidden border border-border">
             <video
               src={project.video}
+              poster={project.cardImage}
               controls
               autoPlay
               muted
@@ -131,8 +132,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           <div className={`grid grid-cols-1 ${project.images.length > 1 ? "md:grid-cols-2" : ""} gap-6`}>
             {project.images.map((img, i) => (
               <figure key={i} className="bg-surface rounded-xl overflow-hidden border border-border">
-                <div className="relative aspect-[4/3]">
-                  <Image src={img.src} alt={img.caption} fill className="object-cover" />
+                <div className="relative">
+                  <Image src={img.src} alt={img.caption} width={800} height={600} className="w-full h-auto" />
                 </div>
                 <figcaption className="p-3 text-xs text-text-secondary font-mono">{img.caption}</figcaption>
               </figure>

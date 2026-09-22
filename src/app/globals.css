@@ -91,3 +91,7 @@ body {
 .text-glow {
   text-shadow: 0 0 20px rgba(92, 240, 138, 0.4), 0 0 40px rgba(92, 240, 138, 0.15);
 }
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}

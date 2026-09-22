@@ -13,6 +13,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           src={project.cardImage}
           alt={project.title}
           fill
+          sizes="(min-width: 768px) 50vw, 100vw"
           className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
         />
         <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-surface to-transparent" />
@@ -21,7 +22,16 @@ export default function ProjectCard({ project }: { project: Project }) {
         <h3 className="font-[family-name:var(--font-display)] text-lg font-bold text-text mb-2 group-hover:text-accent transition-colors leading-tight min-h-[3.5rem]">
           {project.title}
         </h3>
-        <p className="text-sm text-text-secondary mb-4 line-clamp-2 min-h-[2.5rem]">{project.subtitle}</p>
+        <p className="text-sm text-text-secondary mb-3 line-clamp-2 min-h-[2.5rem]">{project.subtitle}</p>
+        {project.cardMetrics && (
+          <div className="flex items-center gap-3 mb-3">
+            {project.cardMetrics.map((m) => (
+              <span key={m} className="text-xs font-mono text-accent bg-accent/8 px-2.5 py-1 rounded-md border border-accent/15">
+                {m}
+              </span>
+            ))}
+          </div>
+        )}
         <div className="flex flex-wrap gap-2 mb-4">
           {project.tags.map((tag) => (
             <span key={tag} className="text-xs px-2.5 py-1 bg-surface-light text-text-secondary rounded-full font-mono border border-border">
@@ -30,7 +40,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           ))}
         </div>
         <div className="flex items-center gap-2 text-accent text-sm font-medium mt-auto">
-          View Case Study
+          Case Study
           <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>

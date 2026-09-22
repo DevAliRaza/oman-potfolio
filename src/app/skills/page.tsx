@@ -8,8 +8,6 @@ export const metadata = {
 };
 
 export default function SkillsPage() {
-  const totalSkills = skills.reduce((sum, cat) => sum + cat.items.length, 0);
-
   return (
     <article className="max-w-5xl mx-auto px-6 py-16">
       <Link href="/#skills" className="inline-flex items-center gap-2 text-sm text-text-secondary hover:text-text transition-colors mb-10">
@@ -24,7 +22,7 @@ export default function SkillsPage() {
           Technical Stack
         </h1>
         <p className="text-lg text-text-secondary mb-6">
-          {totalSkills} technologies across {skills.length} categories — from low-level firmware to cloud-connected AI pipelines.
+          Core stack: Embedded C, STM32, Raspberry Pi, Python, TensorFlow Lite — from low-level firmware to edge-AI inference.
         </p>
       </header>
 

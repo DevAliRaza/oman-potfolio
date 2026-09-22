@@ -6,9 +6,9 @@ import Footer from "@/components/Footer";
 import ThemeProvider from "@/components/ThemeProvider";
 import PCBBackground from "@/components/PCBBackground";
 
-const chakraPetch = Chakra_Petch({ variable: "--font-display", subsets: ["latin"], weight: ["400", "500", "600", "700"] });
-const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
-const jetbrains = JetBrains_Mono({ variable: "--font-mono", subsets: ["latin"] });
+const chakraPetch = Chakra_Petch({ variable: "--font-display", subsets: ["latin"], weight: ["400", "500", "600", "700"], display: "swap" });
+const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
+const jetbrains = JetBrains_Mono({ variable: "--font-mono", subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {
   title: "Oman Khalid Butt — Embedded Systems Engineer",
@@ -34,9 +34,46 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Oman Khalid Butt",
+  jobTitle: "Embedded Systems Engineer",
+  url: "https://omankhalid.me",
+  sameAs: [
+    "https://www.linkedin.com/in/oman-khalid-butt/",
+    "https://github.com/MagnusXd1",
+  ],
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "University of Engineering and Technology, Lahore",
+  },
+  worksFor: {
+    "@type": "Organization",
+    name: "Lahore University of Management Sciences",
+  },
+  knowsAbout: [
+    "Embedded Systems",
+    "Edge AI",
+    "STM32",
+    "Raspberry Pi",
+    "TensorFlow Lite",
+    "RISC-V",
+    "FPGA",
+    "Blockchain IoT",
+    "Autonomous Drones",
+  ],
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${chakraPetch.variable} ${inter.variable} ${jetbrains.variable} scroll-smooth dark`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="font-sans antialiased">
         <ThemeProvider>
           <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-accent focus:text-[#0A1410] focus:rounded-lg focus:text-sm focus:font-semibold">

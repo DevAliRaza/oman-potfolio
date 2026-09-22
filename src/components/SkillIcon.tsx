@@ -17,8 +17,8 @@ export default function SkillIcon({ skill }: { skill: Skill }) {
             unoptimized
           />
         ) : (
-          <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-surface-light border border-border-light flex items-center justify-center">
-            <span className="text-amber text-xs font-bold font-mono">
+          <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-surface-light border border-border-light flex items-center justify-center" role="img" aria-label={skill.name}>
+            <span className="text-amber text-xs font-bold font-mono" aria-hidden="true">
               {skill.name.slice(0, 2).toUpperCase()}
             </span>
           </div>
